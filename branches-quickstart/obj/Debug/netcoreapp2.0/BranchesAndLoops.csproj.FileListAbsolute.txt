@@ -1,0 +1,10 @@
+c:\Z\quickstarts\branches-quickstart\bin\Debug\netcoreapp2.0\BranchesAndLoops.deps.json
+c:\Z\quickstarts\branches-quickstart\bin\Debug\netcoreapp2.0\BranchesAndLoops.runtimeconfig.json
+c:\Z\quickstarts\branches-quickstart\bin\Debug\netcoreapp2.0\BranchesAndLoops.runtimeconfig.dev.json
+c:\Z\quickstarts\branches-quickstart\bin\Debug\netcoreapp2.0\BranchesAndLoops.dll
+c:\Z\quickstarts\branches-quickstart\bin\Debug\netcoreapp2.0\BranchesAndLoops.pdb
+c:\Z\quickstarts\branches-quickstart\obj\Debug\netcoreapp2.0\BranchesAndLoops.csproj.CoreCompileInputs.cache
+c:\Z\quickstarts\branches-quickstart\obj\Debug\netcoreapp2.0\BranchesAndLoops.AssemblyInfoInputs.cache
+c:\Z\quickstarts\branches-quickstart\obj\Debug\netcoreapp2.0\BranchesAndLoops.AssemblyInfo.cs
+c:\Z\quickstarts\branches-quickstart\obj\Debug\netcoreapp2.0\BranchesAndLoops.dll
+c:\Z\quickstarts\branches-quickstart\obj\Debug\netcoreapp2.0\BranchesAndLoops.pdb

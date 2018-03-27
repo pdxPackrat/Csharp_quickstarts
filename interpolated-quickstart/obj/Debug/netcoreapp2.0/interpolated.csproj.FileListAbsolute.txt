@@ -1,0 +1,10 @@
+c:\Z\quickstarts\interpolated-quickstart\bin\Debug\netcoreapp2.0\interpolated.deps.json
+c:\Z\quickstarts\interpolated-quickstart\bin\Debug\netcoreapp2.0\interpolated.runtimeconfig.json
+c:\Z\quickstarts\interpolated-quickstart\bin\Debug\netcoreapp2.0\interpolated.runtimeconfig.dev.json
+c:\Z\quickstarts\interpolated-quickstart\bin\Debug\netcoreapp2.0\interpolated.dll
+c:\Z\quickstarts\interpolated-quickstart\bin\Debug\netcoreapp2.0\interpolated.pdb
+c:\Z\quickstarts\interpolated-quickstart\obj\Debug\netcoreapp2.0\interpolated.csproj.CoreCompileInputs.cache
+c:\Z\quickstarts\interpolated-quickstart\obj\Debug\netcoreapp2.0\interpolated.AssemblyInfoInputs.cache
+c:\Z\quickstarts\interpolated-quickstart\obj\Debug\netcoreapp2.0\interpolated.AssemblyInfo.cs
+c:\Z\quickstarts\interpolated-quickstart\obj\Debug\netcoreapp2.0\interpolated.dll
+c:\Z\quickstarts\interpolated-quickstart\obj\Debug\netcoreapp2.0\interpolated.pdb
