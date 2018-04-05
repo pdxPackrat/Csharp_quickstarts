@@ -11,12 +11,12 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-//          SpeechSynthesizer synth = new SpeechSynthesizer();
+            //SpeechSynthesizer synth = new SpeechSynthesizer();
 
-//          Console.WriteLine("What is your name, user?");
-//          String myName = Console.ReadLine();
+            //Console.WriteLine("What is your name, user?");
+            //String myName = Console.ReadLine();
 
-//          synth.Speak("Hello " + myName +" , this is the grade book program");
+            //synth.Speak("Hello " + myName +" , this is the grade book program");
 
             GradeBook book = new GradeBook();
             book.AddGrade(91);
@@ -27,14 +27,13 @@ namespace Grades
             GradeStatistics stats = book.ComputeStatistics();
             Console.WriteLine("Avg: " + stats.AverageGrade);
             Console.WriteLine("Highest: " + stats.HighestGrade);
-            Console.WriteLine("Lowest: " + stats.LowestGrade); 
+            Console.WriteLine("Lowest: " + stats.LowestGrade);
 
             /* in the example below, the instructor was showing that book2 gets the ADDRESS of book, and therefore whatever edits one of the those edits the other
              * 
             GradeBook book2 = book; 
             book2.AddGrade(75);
-            */ 
-
+            */
         }
     }
 }
