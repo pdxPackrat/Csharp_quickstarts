@@ -58,7 +58,11 @@ namespace Grades
                 {
                     if (_name != value)
                     {
-                        NameChanged(_name, value);
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.ExistingName = _name;
+                        args.NewName = value;
+
+                        NameChanged(this, args);
                     }
 
                     _name = value; // value is an automatic parameter passed in as part of the set and this code prevents null assignment
@@ -66,7 +70,7 @@ namespace Grades
             }
         }
 
-        public NameChangedDelegate NameChanged;  // from NameChangedDelegate.cs
+        public event NameChangedDelegate NameChanged;  // from NameChangedDelegate.cs
 
         private string _name;
         private List<float> grades;

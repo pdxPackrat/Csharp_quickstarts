@@ -20,8 +20,7 @@ namespace Grades
 
             GradeBook book = new GradeBook();
 
-            book.NameChanged += new NameChangedDelegate(OnNameChanged); // example of delegates from the course
-            book.NameChanged += new NameChangedDelegate(OnNameChanged2); // example of delegates from the course and in this case a "multi-cast" delegate
+            book.NameChanged += OnNameChanged;  // can do with = new NameChangedDelegate(OnNameChanged); or this way 
 
             book.Name = "Scott's Grade Book";
             book.Name = "Grade Book";
@@ -45,15 +44,11 @@ namespace Grades
         }
 
         
-        static void OnNameChanged(string existingName, string newName)   // part of the delegate example from the course
+        static void OnNameChanged(object sender, NameChangedEventArgs args)   // part of the delegate example from the course
         {
-            Console.WriteLine($"Grade book changing name from {existingName} to {newName}");
+            Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
         }
 
-        static void OnNameChanged2(string existingName, string newName)   // part of the delegate example from the course
-        {
-            Console.WriteLine("***");
-        }
 
         static void WriteResult(string description, int result) // showing some examples of method overloading
         {
