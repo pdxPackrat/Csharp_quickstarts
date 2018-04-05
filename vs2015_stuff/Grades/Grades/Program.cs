@@ -19,21 +19,50 @@ namespace Grades
             //synth.Speak("Hello " + myName +" , this is the grade book program");
 
             GradeBook book = new GradeBook();
+
+            book.NameChanged += new NameChangedDelegate(OnNameChanged); // example of delegates from the course
+            book.NameChanged += new NameChangedDelegate(OnNameChanged2); // example of delegates from the course and in this case a "multi-cast" delegate
+
+            book.Name = "Scott's Grade Book";
+            book.Name = "Grade Book";
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
 
 
             GradeStatistics stats = book.ComputeStatistics();
-            Console.WriteLine("Avg: " + stats.AverageGrade);
-            Console.WriteLine("Highest: " + stats.HighestGrade);
-            Console.WriteLine("Lowest: " + stats.LowestGrade);
+            WriteResult("Average", stats.AverageGrade);
+            WriteResult("Highest", (int)stats.HighestGrade);
+            WriteResult("Lowest", stats.LowestGrade);
+
+
 
             /* in the example below, the instructor was showing that book2 gets the ADDRESS of book, and therefore whatever edits one of the those edits the other
              * 
             GradeBook book2 = book; 
             book2.AddGrade(75);
             */
+        }
+
+        
+        static void OnNameChanged(string existingName, string newName)   // part of the delegate example from the course
+        {
+            Console.WriteLine($"Grade book changing name from {existingName} to {newName}");
+        }
+
+        static void OnNameChanged2(string existingName, string newName)   // part of the delegate example from the course
+        {
+            Console.WriteLine("***");
+        }
+
+        static void WriteResult(string description, int result) // showing some examples of method overloading
+        {
+            Console.WriteLine(description + ": " + result);
+        }
+
+        static void WriteResult(string description, float result) // showing some examples of method overloading
+        {
+            Console.WriteLine(description + " (float): " + result);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Grades
     {
         public GradeBook()
         {
+            _name = "Empty";
             grades = new List<float>(); 
         }
 
@@ -38,8 +39,36 @@ namespace Grades
             grades.Add(grade);
         }
 
-        public string Name;
+        /*
+        public string Name
+        {
+            get; set; // auto-implementer that turns this from a field to a property
+        }
+        */
 
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if(!String.IsNullOrEmpty(value))
+                {
+                    if (_name != value)
+                    {
+                        NameChanged(_name, value);
+                    }
+
+                    _name = value; // value is an automatic parameter passed in as part of the set and this code prevents null assignment
+                }
+            }
+        }
+
+        public NameChangedDelegate NameChanged;  // from NameChangedDelegate.cs
+
+        private string _name;
         private List<float> grades;
     }
 }
