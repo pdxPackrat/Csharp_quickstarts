@@ -8,7 +8,7 @@ namespace Grades
 {
     class ThrowAwayGradeBook : GradeBook
     {
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics() // adding override to the method to cause it to have precedence in any behavior in the virtual/abstract method of the base class
         {
             Console.WriteLine("ThrowAwayGradeBook::ComputeStatistics");
 

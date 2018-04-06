@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
         public GradeBook()
         {
@@ -15,7 +15,7 @@ namespace Grades
             grades = new List<float>(); 
         }
 
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics() // overriding the ComputeStatistics method defined in GradeTracker.cs
         {
             Console.WriteLine("GradeBook:ComputeStatistics");
 
@@ -35,7 +35,7 @@ namespace Grades
             return stats;
         }
 
-        public void WriteGrades(TextWriter destination)
+        public override void WriteGrades(TextWriter destination)
         {
             for (int i = 0; i < grades.Count; i++)
             {
@@ -44,7 +44,7 @@ namespace Grades
             }
         }
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             grades.Add(grade);
         }
@@ -56,37 +56,7 @@ namespace Grades
         }
         */
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
 
-                if (string.IsNullOrEmpty(value)) // module is showing example of how to throw an exception as needed
-                {
-                    throw new ArgumentException("Name cannot be null or empty");
-                }
-
-                if (_name != value && NameChanged != null)
-                {
-                    NameChangedEventArgs args = new NameChangedEventArgs();
-                    args.ExistingName = _name;
-                    args.NewName = value;
-
-                    NameChanged(this, args);
-                }
-
-                _name = value; // value is an automatic parameter passed in as part of the set and this code prevents null assignment
-
-            }
-        }
-
-        public event NameChangedDelegate NameChanged;  // from NameChangedDelegate.cs
-
-        private string _name;
         protected List<float> grades;  // changing to protected to allow ThrowAwayGradeBook.cs to have access
     }
 }

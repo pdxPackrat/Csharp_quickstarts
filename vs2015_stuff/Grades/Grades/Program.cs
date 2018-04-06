@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
-// using System.Speech.Synthesis;
+using System.Speech.Synthesis;
 
 namespace Grades
 {
@@ -12,14 +13,9 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            //SpeechSynthesizer synth = new SpeechSynthesizer();
+            GradeTracker book = CreateGradeBook();
 
-            //Console.WriteLine("What is your name, user?");
-            //String myName = Console.ReadLine();
-
-            //synth.Speak("Hello " + myName +" , this is the grade book program");
-
-            GradeBook book = new ThrowAwayGradeBook();
+            // TalkToMe();
 
             // book.NameChanged += OnNameChanged;  // can do with = new NameChangedDelegate(OnNameChanged); or this way 
 
@@ -38,12 +34,28 @@ namespace Grades
 
             /* in the example below, the instructor was showing that book2 gets the ADDRESS of book, and therefore whatever edits one of the those edits the other
              * 
-            GradeBook book2 = book; 
+            GradeTracker book2 = book; 
             book2.AddGrade(75);
             */
         }
 
-        private static void WriteResults(GradeBook book)
+        private static void TalkToMe()
+        {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+            Console.WriteLine("What is your name, user?");
+            String myName = Console.ReadLine();
+
+            synth.Speak("Hello " + myName + " , this is the grade book program");
+        }
+
+        private static GradeTracker CreateGradeBook()
+        {
+
+            return new ThrowAwayGradeBook();
+        }
+
+        private static void WriteResults(GradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
@@ -52,7 +64,7 @@ namespace Grades
             WriteResult(stats.Description, stats.LetterGrade);
         }
 
-        private static void SaveGrades(GradeBook book)
+        private static void SaveGrades(GradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt"))  // did CTRL + . over File to tell it to use system.io and we use "using" to do proper cleanup of the object
             {
@@ -60,14 +72,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeBook book)
+        private static void AddGrades(GradeTracker book)
         {
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
         }
 
-        private static void GetBookName(GradeBook book)
+        private static void GetBookName(GradeTracker book)
         {
             try
             {
