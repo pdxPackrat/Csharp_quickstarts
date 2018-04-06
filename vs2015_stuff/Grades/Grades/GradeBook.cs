@@ -17,9 +17,9 @@ namespace Grades
 
         public GradeStatistics ComputeStatistics()
         {
-            GradeStatistics stats = new GradeStatistics();
-            
+            Console.WriteLine("GradeBook:ComputeStatistics");
 
+            GradeStatistics stats = new GradeStatistics();
             
             float sum = 0f;
             foreach(float grade in grades)
@@ -87,6 +87,6 @@ namespace Grades
         public event NameChangedDelegate NameChanged;  // from NameChangedDelegate.cs
 
         private string _name;
-        private List<float> grades;
+        protected List<float> grades;  // changing to protected to allow ThrowAwayGradeBook.cs to have access
     }
 }

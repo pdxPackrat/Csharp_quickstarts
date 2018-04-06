@@ -19,7 +19,7 @@ namespace Grades
 
             //synth.Speak("Hello " + myName +" , this is the grade book program");
 
-            GradeBook book = new GradeBook();
+            GradeBook book = new ThrowAwayGradeBook();
 
             // book.NameChanged += OnNameChanged;  // can do with = new NameChangedDelegate(OnNameChanged); or this way 
 
@@ -29,7 +29,7 @@ namespace Grades
             //book.Name = "Test Book";
             // book.Name = null; // to test an exception situation
 
-            GetBookName(book);
+            //GetBookName(book);
             AddGrades(book);
             SaveGrades(book);
             WriteResults(book);
