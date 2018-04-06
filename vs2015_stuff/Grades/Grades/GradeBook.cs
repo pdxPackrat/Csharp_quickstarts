@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,6 +57,10 @@ namespace Grades
         }
         */
 
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
+        }
 
         protected List<float> grades;  // changing to protected to allow ThrowAwayGradeBook.cs to have access
     }
