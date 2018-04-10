@@ -14,8 +14,17 @@ namespace Grades.Tests
         [TestMethod]
         public void OutputGrades()
         {
-            //
+            // trying some new
+            GradeBook book = new GradeBook();
+            book.Name = "Testing something else";
 
+            book.AddGrade(99);
+            book.AddGrade(50);
+            book.AddGrade(90);
+            book.AddGrade(60);
+
+            GradeStatistics result = book.ComputeStatistics();
+            Assert.AreEqual("C", result.LetterGrade);
         }
 
         [TestMethod]
