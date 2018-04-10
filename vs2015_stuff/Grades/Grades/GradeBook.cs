@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Grades
 {
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
         public GradeBook()
         {
+            _name = "Empty";
             grades = new List<float>(); 
         }
 
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics() // overriding the ComputeStatistics method defined in GradeTracker.cs
         {
-            GradeStatistics stats = new GradeStatistics();
-            
+            Console.WriteLine("GradeBook:ComputeStatistics");
 
+            GradeStatistics stats = new GradeStatistics();
             
             float sum = 0f;
             foreach(float grade in grades)
@@ -33,13 +36,32 @@ namespace Grades
             return stats;
         }
 
-        public void AddGrade(float grade)
+        public override void WriteGrades(TextWriter destination)
+        {
+            for (int i = 0; i < grades.Count; i++)
+            {
+                destination.WriteLine(grades[i]);
+
+            }
+        }
+
+        public override void AddGrade(float grade)
         {
             grades.Add(grade);
         }
 
-        public string Name;
+        /*
+        public string Name
+        {
+            get; set; // auto-implementer that turns this from a field to a property
+        }
+        */
 
-        private List<float> grades;
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
+        }
+
+        protected List<float> grades;  // changing to protected to allow ThrowAwayGradeBook.cs to have access
     }
 }
