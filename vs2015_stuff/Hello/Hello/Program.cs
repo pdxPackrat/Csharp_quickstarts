@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
 
 namespace Hello
@@ -8,6 +9,8 @@ namespace Hello
         static void Main(string[] args)
         {
 
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
             Console.WriteLine("Your Name:");
             string name = Console.ReadLine();
 
@@ -16,6 +19,7 @@ namespace Hello
             int hoursOfSleep = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Hello, " + name);
+            synth.Speak("Hello " + name + ", it is nice to meet you!");
 
             if (hoursOfSleep > 8)
             {
@@ -26,6 +30,7 @@ namespace Hello
             {
                 Console.WriteLine("You need more sleep");
             }
+
 
             // Console.WriteLine("Hello, " + args[0]);
 
